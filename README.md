@@ -20,7 +20,7 @@ Bienvenido a **CineMVC**, un proyecto desarrollado en **PHP nativo** con el patr
    ```bash
    git clone https://github.com/dsmdev-tech/CineMVC.git
    ```
-2. Configura la base de datos importando el archivo **cine.sql**.
+2. Configura la base de datos.
 3. Configura el acceso a la base de datos en el archivo **config.php**.
 4. Inicia el servidor local:
    ```bash
