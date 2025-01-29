@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "files": ["config/config.php", "start.php"],
+        "psr-4": {
+            "Core\\": "core/",
+            "App\\Models\\": "app/models/",
+            "App\\Controllers\\": "app/controllers/"
+        }
+    },
+    "require": {
+      "ext-pdo": "*"
+    }
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h2 {
+            font-size: 24px;
+            color: #0065ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0065ff;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #910000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6e0000;
+        }
+
+        .logout {
+            margin-top: 20px;
+            display: block;
+        }
+
+        a {
+            color: #0065ff;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #0065ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00327e;
+        }
+
+    </style>
+</head>
+<body>
+
+<?php
+echo "<h2> Usuario " . $_SESSION['username'] . "</h2>"
+?>
+
+<div class='buttons'>
+    <a href="/user/indexTickets/<?= $_SESSION['idUser'] ?>"><button>Mis entradas</button></a>
+    <a href="/user/indexCinema"><button>Cines</button></a>
+</div>
+
+
+<h3>Bienvenido a Poli_Cines</h3>
+
+<?php
+if(count($cinemas) > 0){ ?>
+
+<table>
+    <h4>Listado de todos los cines de la cadena</h4>
+    <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+    </tr>
+    <?php foreach($cinemas as $cinema){
+        echo "<tr>";
+        echo "<td><a href='/movie/index/" . $cinema->idCinema . "'> " . $cinema->name . " </a></td>";
+        echo "<td>" . $cinema->address . "</td>";
+        echo "</tr>";
+    }
+    }
+    ?>
+</table>
+
+<div class="logout">
+    <a href="/user/logout"><button>Salir</button></a>
+</div>
+
+</body>
+</html>
